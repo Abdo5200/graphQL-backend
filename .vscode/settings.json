@@ -1,0 +1,9 @@
+// {
+//   "javascript.suggest.autoImports": false,
+//   "javascript.preferences.includePackageJsonAutoImports": "off",
+//   "javascript.validate.enable": false,
+//   "typescript.disableAutomaticTypeAcquisition": true,
+//   "files.watcherExclude": {
+//     "**/node_modules/**": true
+//   }
+// }
