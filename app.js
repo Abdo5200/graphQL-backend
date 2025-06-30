@@ -25,6 +25,8 @@ const app = express();
 
 const removeImage = require("./removeImage");
 
+const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.henws.mongodb.net/${process.env.MONGO_DB}`;
+
 const fileStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "images");
@@ -45,7 +47,7 @@ const fileFilter = (req, file, cb) => {
   else cb(null, false);
 };
 
-const MONGODB_URI = process.env.MONGODB_URI;
+// const MONGODB_URI = process.env.MONGODB_URI;
 
 app.use(bodyParser.json());
 
@@ -123,7 +125,7 @@ mongoose
   .connect(MONGODB_URI)
   .then((result) => {
     console.log("DB Connected");
-    app.listen(process.env.PORT);
+    app.listen(process.env.PORT || 8080);
   })
   .catch((err) => {
     console.log(err);
